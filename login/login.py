@@ -1,36 +1,22 @@
-from PySide6.QtWidgets import QMainWindow, QLabel, QLineEdit, QPushButton, QVBoxLayout, QWidget
-from PySide6.QtCore import Qt
-from verificar import verificar_login  # Importe a função verificar_login
+from PySide6.QtWidgets import QMainWindow, QMessageBox
+from login_designer import Ui_MainWindow  
+
 
 class Login(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.setWindowTitle("Tela de Login")  
+        self.ui.botao_entrar.clicked.connect(self.verificar_login)
 
-        self.setWindowTitle("Tela de Login")
-        self.setGeometry(100, 100, 400, 400)
+    def verificar_login(self):
+        usuario = self.ui.input_usuario.text()
+        senha = self.ui.input_senha.text()
 
-        central_widget = QWidget()
-        self.setCentralWidget(central_widget)
+        if usuario == "adm" and senha == "123":
+            QMessageBox.information(self, "Sucesso", "Login bem-sucedido!")
+            self.close()
 
-        layout = QVBoxLayout(central_widget)
-
-        self.label_usuario = QLabel("Usuário:")
-        self.label_usuario.setAlignment(Qt.AlignCenter)
-        self.input_usuario = QLineEdit()
-
-        self.label_senha = QLabel("Senha:")
-        self.label_senha.setAlignment(Qt.AlignCenter)
-        self.input_senha = QLineEdit()
-        self.input_senha.setEchoMode(QLineEdit.Password) 
-        self.botao_entrar = QPushButton("Entrar")
-        self.botao_cancelar = QPushButton("Cancelar")
-
-        self.botao_entrar.clicked.connect(lambda: verificar_login(self)) 
-        self.botao_cancelar.clicked.connect(self.close)
-
-        layout.addWidget(self.label_usuario)
-        layout.addWidget(self.input_usuario)
-        layout.addWidget(self.label_senha)
-        layout.addWidget(self.input_senha)
-        layout.addWidget(self.botao_entrar)
-        layout.addWidget(self.botao_cancelar)
+        else:
+            QMessageBox.warning(self, "Erro", "Usuário ou senha incorretos.")

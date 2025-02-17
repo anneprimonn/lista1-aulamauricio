@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'designlogin.ui'
+## Form generated from reading UI file 'login_designer.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -18,9 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QGridLayout,
     QLabel, QLineEdit, QMainWindow, QPushButton,
     QSizePolicy, QStatusBar, QWidget)
-import img_rc
-import imglogin_rc
-
+#import img_rc
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -42,6 +39,7 @@ class Ui_MainWindow(object):
         self.frame = QFrame(self.frame_2)
         self.frame.setObjectName(u"frame")
         self.frame.setMinimumSize(QSize(500, 500))
+        self.frame.setMaximumSize(QSize(500, 16777215))
         self.frame.setStyleSheet(u"background-color: rgb(255, 231, 219);\n"
 "border-radius:20px;")
         self.frame.setFrameShape(QFrame.Shape.StyledPanel)
@@ -110,7 +108,7 @@ class Ui_MainWindow(object):
         self.formLayout_2.setWidget(1, QFormLayout.LabelRole, self.frame)
 
 
-        self.gridLayout.addWidget(self.frame_2, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+        self.gridLayout.addWidget(self.frame_2, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignVCenter)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(MainWindow)

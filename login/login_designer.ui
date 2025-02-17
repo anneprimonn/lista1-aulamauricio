@@ -21,7 +21,7 @@
     <bool>true</bool>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+    <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
      <widget class="QFrame" name="frame_2">
       <property name="minimumSize">
        <size>
@@ -42,6 +42,12 @@
           <size>
            <width>500</width>
            <height>500</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>500</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -181,7 +187,6 @@ border-radius:30px;</string>
  </widget>
  <resources>
   <include location="img.qrc"/>
-  <include location="imglogin.qrc"/>
  </resources>
  <connections/>
 </ui>
